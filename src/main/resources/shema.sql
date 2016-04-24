@@ -11,5 +11,11 @@ CREATE TABLE AUTHORITIES (
         FOREIGN KEY (USERNAME) REFERENCES USERS(USERNAME)
 );
 
-insert into USERS (USERNAME, PASSWORD) values ('admin1','ad');
-insert into AUTHORITIES (USERNAME, AUTHORITY) values ('admin1','ROLE_USER');
+insert into USERS (USERNAME, PASSWORD) values ('user','us');
+insert into AUTHORITIES (USERNAME, AUTHORITY) values ('user','ROLE_USER');
+
+insert into USERS (USERNAME, PASSWORD) values ('admin','ad');
+insert into AUTHORITIES (USERNAME, AUTHORITY) values ('admin','ROLE_ADMIN');
+
+insert into USERS (USERNAME, PASSWORD) values ('zero','zero');
+insert into AUTHORITIES (USERNAME, AUTHORITY) values ('zero','ROLE_USER, ROLE_ADMIN');

@@ -31,7 +31,11 @@ public class UserDAO implements UserDaoApi {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         jdbcTemplate.update("CREATE TABLE USERS (USERNAME VARCHAR(10) NOT NULL,PASSWORD VARCHAR(30) NOT NULL,      ENABLED SMALLINT DEFAULT '1',        PRIMARY KEY (USERNAME));");
         jdbcTemplate.update("CREATE TABLE AUTHORITIES (USERNAME VARCHAR(10) NOT NULL, AUTHORITY VARCHAR(30) NOT NULL,  FOREIGN KEY (USERNAME) REFERENCES USERS(USERNAME));");
-        User usert =   new User("admin0", "0", "ROLE_USER, ROLE_ADMIN");
+        User usert =   new User("user", "us", "ROLE_USER");
+        createUserDAO(usert);
+        usert =   new User("admin", "ad", "ROLE_ADMIN");
+        createUserDAO(usert);
+        usert =   new User("zero", "zero", "ROLE_USER, ROLE_ADMIN");
         createUserDAO(usert);
     }
     @Override
